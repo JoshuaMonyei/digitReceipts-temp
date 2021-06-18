@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const {isLoggedIn} = require('..config/auth')
+const {isLoggedIn} = require('../config/auth')
 
 // root route
 router.get('/', function(req, res) {

@@ -1,16 +1,18 @@
 const express = require('express');
 const router = express.Router();
 const passport = require('passport');
+const User = require('../models/Users');
+
 // import user controller
 const userController = require("../controllers/userControllers");
 
 // show register form
-router.get('/signup', function(req, res) {
-    res.render("signup")
+router.get('/register', function(req, res) {
+    res.render("register")
 });
 
 // handle signup logic
-router.post('/signup', userController.signup);
+router.post('/register', userController.signup);
 
 // route for email confirmation
 router.get('/verify-email', userController.verifyEmail)

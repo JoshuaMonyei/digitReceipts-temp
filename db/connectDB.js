@@ -1,24 +1,21 @@
 const mongoose = require('mongoose');
 require('dotenv').config();
 
-const {MONGO_URI} = process.env;
+const connectionString = "mongodb+srv://flashReceipts:zuri1234@flash.ku6yq.mongodb.net/flashretryWrites=true&w=majority";
 
 // Create database connection
-const connectDB = async () => {
-    try {
-        await mongoose.connect(MONGO_URI, {
-            useNewUrlParser: true,
-            useCreateIndex: true,
-            useUnifiedTopology: true,
-            useFindAndModify: false
-        });
-        console.log('Database Connected...');
-
-    } catch (error) {
-        console.log("DB connection error");
-        process.exit();
-    }
-  
+function connectDB() {
+    mongoose.connect(connectionString, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        useFindAndModify:  false,
+        useCreateIndex: true
+    }, (err) => {
+        if (err) {
+            console.log(err);
+        } else {console.log('Database Connected...')}
+    })
 }
+
 
 module.exports = connectDB;
