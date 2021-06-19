@@ -1,14 +1,13 @@
 const mongoose = require('mongoose');
 require('dotenv').config();
 
-const connectionString = "mongodb+srv://flashReceipts:zuri1234@flash.ku6yq.mongodb.net/flashretryWrites=true&w=majority";
-
+const connectionString = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@flash.ku6yq.mongodb.net/flashretryWrites=true&w=majority`;
 // Create database connection
 function connectDB() {
     mongoose.connect(connectionString, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
-        useFindAndModify:  false,
+        useFindAndModify:  false,   
         useCreateIndex: true
     }, (err) => {
         if (err) {
