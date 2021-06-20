@@ -126,10 +126,10 @@ exports.login = async (req, res, next) => {
     
     User.findOne({email: req.body.email}, (err, confirmedUser) => {
         if (err){
-            return res.status(500).json({err})
+            req.flash('error_msg', "server error, please try again")
         }
         if (!confirmedUser){
-            return res.status(401).json({message: "incorrect email"})
+            req.flash('error_msg', "invalid email")
         } 
 
          //check password is correct
