@@ -2,7 +2,9 @@ const User = require('../models/Users');
 const nodemailer = require('nodemailer');
 const crypto = require('crypto')
 const  bcrypt = require('bcrypt');
-const {SECRET} = process.env;
+const jwt = require('jsonwebtoken');
+require('dotenv').config();
+const secret = process.env.SECRET;
 const expiry = 84600;
 
 // user signup
@@ -119,3 +121,36 @@ exports.verifyEmail = async (req, res, next) => {
         res.redirect('/');
     }
 }
+
+exports.login = async (req, res, next) => {
+    
+    User.findOne({email: req.body.email}, (err, confirmedUser) => {
+        if (err){
+            return res.status(500).json({err})
+        }
+        if (!confirmedUser){
+            return res.status(401).json({message: "incorrect email"})
+        } 
+
+         //check password is correct
+        let match = bcrypt.compareSync(req.body.password, confirmedUser.password)
+        if (!match){
+            return res.status(401).json({message: "incorrect password"})
+        }
+        
+        jwt.sign({
+            id: confirmedUser.id,
+            name: confirmedUser.name,
+        }, secret, {
+            expiresIn: expiry
+        }, (err, token) => {
+            if (err){
+                return res.status(500).json({err})
+            }
+            console.log(token)
+            req.flash('success_msg', "Logged in successfully")
+            res.redirect('dashboard')
+        })
+    })
+}
+
