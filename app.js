@@ -3,7 +3,6 @@ const connectDB = require('./db/connectDB');
 const expressLayouts = require('express-ejs-layouts');
 const flash = require('connect-flash');
 const session = require('express-session');
-const passport = require('passport');
 const userRoutes = require('./routes/userRoutes');
 const Routes = require('./routes/index');
 
@@ -20,9 +19,6 @@ app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
 
 
-//  Passport config
-require('./config/passport')(passport);
-
 // Connect to the database
 connectDB();
 
@@ -32,12 +28,6 @@ app.use(session({
     resave: true,
     saveUninitialized: true,
 }));
-
-// Passport middleware
-app.use(passport.initialize());
-app.use(passport.session());
-
-
 
 // Connect flash 
 app.use(flash());
