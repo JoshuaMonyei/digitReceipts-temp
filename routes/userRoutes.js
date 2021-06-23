@@ -1,7 +1,5 @@
 const express = require('express');
 const router = express.Router();
-//const passport = require('passport');
-const User = require('../models/Users');
 
 // import user controller
 const userController = require("../controllers/userControllers");
@@ -23,13 +21,13 @@ router.get('/login', function(req, res) {
 });
 
 // handles login logic
-router.post('/login', userController.login)
+router.post('/login', userController.login) 
 
 
 // Logout Handler
-router.get('/logout', (req, res) => {
+// router.get('/logout', (req, res) => {
     
-})
+// })
 
 
 module.exports = router;

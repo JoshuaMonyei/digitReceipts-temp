@@ -1,4 +1,5 @@
 const User = require('../models/Users');
+const {validationResult} = require('express-validator');
 const nodemailer = require('nodemailer');
 const crypto = require('crypto')
 const  bcrypt = require('bcrypt');
@@ -106,8 +107,8 @@ exports.verifyEmail = async (req, res, next) => {
     try{
         const user = await User.findOne({emailToken: req.query.token});
         if(!user) {
-            req.flash('error', "Token is invalid. Please contact us for assistance")
-            return res.redirect('/');z
+            req.flash('error_msg', "Token is invalid. Please contact us for assistance")
+            return res.redirect('/');
         }
         // deleting verified user emailToken in the DB
         user.emailToken = null;
@@ -123,34 +124,50 @@ exports.verifyEmail = async (req, res, next) => {
 }
 
 exports.login = async (req, res, next) => {
-    
-    User.findOne({email: req.body.email}, (err, confirmedUser) => {
-        if (err){
-            req.flash('error_msg', "server error, please try again")
-        }
-        if (!confirmedUser){
-            req.flash('error_msg', "invalid email")
-        } 
-
-         //check password is correct
-        let match = bcrypt.compareSync(req.body.password, confirmedUser.password)
-        if (!match){
-            return res.status(401).json({message: "incorrect password"})
-        }
-        
-        jwt.sign({
-            id: confirmedUser.id,
-            name: confirmedUser.name,
-        }, secret, {
-            expiresIn: expiry
-        }, (err, token) => {
-            if (err){
-                return res.status(500).json({err})
+    // check for errors in email input
+    const errors = validationResult(req);
+    if(!errors.isEmpty()) {
+        req.flash('error_msg', "Invalid input");
+        return res.redirect('/login')
+    }
+    // else
+    try {
+        User.findOne({email: req.body.email}, (err, confirmedUser) => {
+            if (!confirmedUser){
+                req.flash('error_msg', "Invalid email, You're yet to be registered")
+                return res.redirect('/login');
             }
-            console.log(token)
-            req.flash('success_msg', "Logged in successfully")
-            res.redirect('dashboard')
+            // check if registered has verified emailToken
+            if (!confirmedUser.isVerified){
+                req.flash('error_msg', "Please verify your email to login")
+                return res.redirect('/login');
+            } 
+             //check password is correct
+            let isMatch = bcrypt.compareSync(req.body.password, confirmedUser.password)
+            if (!isMatch){
+                req.flash('error_msg', "Email and password do not match")
+                return res.redirect('/login')
+            }
+            
+            jwt.sign({
+                id: confirmedUser.id,
+                name: confirmedUser.name,
+            }, secret, {
+                expiresIn: expiry
+            }, (err, token) => {
+                res.cookie('token', token, {
+                    expires: new Date(Date.now() + 86400000),
+                    secure: false, // set to true if your using https
+                    httpOnly: true,
+                  });
+                req.flash('success_msg', "Logged in successfully")
+                return res.redirect('/dashboard')
+            })
         })
-    })
+    } catch (error) {
+        req.flash('error_msg', error)
+        return res.redirect('/login');
+    }
+    
 }
 

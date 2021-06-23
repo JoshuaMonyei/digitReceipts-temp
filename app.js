@@ -2,6 +2,7 @@ const express = require('express');
 const connectDB = require('./db/connectDB');
 const expressLayouts = require('express-ejs-layouts');
 const flash = require('connect-flash');
+const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const userRoutes = require('./routes/userRoutes');
 const Routes = require('./routes/index');
@@ -17,7 +18,6 @@ app.set('view engine', 'ejs');
 
 // Express body parser
 app.use(express.urlencoded({ extended: true }));
-
 
 // Connect to the database
 connectDB();
@@ -38,10 +38,11 @@ app.use((req, res, next) => {
     res.locals.error_msg = req.flash('error_msg');
     res.locals.error = req.flash('error');
     next();
-})
+});
 
 // Initialize Express middleware
 app.use(express.json({extended: false}));
+app.use(cookieParser());
 app.use(Routes, userRoutes);
 
 const port = process.env.PORT || 9001

@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { isLoggedIn } = require('../middlewares/loggedIn');
+const { isLoggedIn } = require('../middlewares/auth');
 
 // root route
 router.get('/', function(req, res) {
@@ -9,7 +9,7 @@ router.get('/', function(req, res) {
 });
 
 //dashboard view
-router.get('/dashboard',isLoggedIn, (req, res) => {
+router.get('/dashboard', isLoggedIn, (req, res) => {
     res.render("dashboard");
 })
 
