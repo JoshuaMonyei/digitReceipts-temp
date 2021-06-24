@@ -25,9 +25,9 @@ router.post('/login', userController.login)
 
 
 // Logout Handler
-// router.get('/logout', (req, res) => {
-    
-// })
+router.get('/logout', (req, res) => {
+    res.render("landing", userController.logout)
+})
 
 
 module.exports = router;
