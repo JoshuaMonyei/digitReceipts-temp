@@ -176,6 +176,6 @@ exports.logout =(req, res) => {
         expires: new Date(Date.now() + 1)
     });
     req.flash('success_msg', "Logged out")
-    return res.redirect('/landing')
+    return res.redirect('/')
 }
 
