@@ -171,3 +171,11 @@ exports.login = async (req, res, next) => {
     
 }
 
+exports.logout =(req, res) => {
+    res.cookie('token', '', {
+        expires: new Date(Date.now() + 1)
+    });
+    req.flash('success_msg', "Logged out")
+    return res.redirect('/landing')
+}
+
