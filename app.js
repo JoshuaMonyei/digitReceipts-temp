@@ -6,6 +6,7 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const userRoutes = require('./routes/userRoutes');
 const Routes = require('./routes/index');
+const receiptRoutes = require('./routes/receiptsRoutes')
 
 require('dotenv').config();
 
@@ -44,6 +45,7 @@ app.use((req, res, next) => {
 app.use(express.json({extended: false}));
 app.use(cookieParser());
 app.use(Routes, userRoutes);
+app.use(Routes, receiptRoutes);
 
 const port = process.env.PORT || 9001
 
