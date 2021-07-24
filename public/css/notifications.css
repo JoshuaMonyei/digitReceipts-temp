@@ -1,0 +1,401 @@
+*{
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    text-decoration: none;
+}
+
+body{
+    background: #F7F7F7;
+}
+
+
+
+.panel{
+    position: absolute;
+    width: 222px;
+    height: 1250px;
+    left: 0px;
+    top: 0px;
+    
+    background: #FFFFFF;
+    box-shadow: 0px 0px 30px 5px rgba(0, 0, 0, 0.1);
+    
+}
+
+.frame7{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px 0px 0px 30px;
+
+    position: absolute;
+    width: 239px;
+    height: 54px;
+    left: 0px;
+    top: 183px;
+    color: #898A8E;
+    border: 0.75px solid rgba(255, 255, 255, 0.21);
+    box-sizing: border-box;
+
+    
+}
+.frame7 p{
+    padding: 10px 0px 0px 30px;
+    
+}
+
+.frame7:active{
+    width: 100%;
+    background: #606586;
+    color: #FFFFFF;
+}
+
+.notification{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px 0px 0px 30px;
+    position: relative;
+    width: 100%;
+    height: 50px;
+    left: 0;
+    top: 300.5px;
+    border: 0.75px solid rgba(255, 255, 255, 0.21);
+    box-sizing: border-box;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    text-transform: capitalize;
+    color: rgba(3, 5, 15, 0.5);
+
+}
+
+.notification p{
+    padding: 10px 0px 0px 30px;
+    
+}
+
+
+.notification:active{
+    width: 100%;
+    background: #606586;
+    color: #FFFFFF;
+}
+
+
+.history{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px 0px 0px 30px;
+    position: relative;
+    width: 239px;
+    height: 54px;
+    left: 0;
+    top: 300.5px;
+    margin-top: 3rem;
+   
+    font-family: Roboto;
+    color: #898A8E;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    text-transform: capitalize;
+    color: rgba(3, 5, 15, 0.5);
+}
+
+.history p{
+    padding: 10px 0px 0px 30px;
+}
+
+.history:active{
+    width: 100%;
+    background: #606586;
+    color: #FFFFFF;
+}
+
+.settings{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px 0px 0px 30px;
+    position: relative;
+    width: 239px;
+    height: 54px;
+    left: 0;
+    top: 300.5px;
+    margin-top: 4rem;
+   
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    text-transform: capitalize;
+    color: rgba(3, 5, 15, 0.5);
+}
+
+.settings p{
+    padding: 10px 0px 0px 30px;
+}
+
+.settings:active{
+    width: 100%;
+    background: #606586;
+    color: #FFFFFF;
+}
+
+.Logout{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px 0px 0px 30px;
+    position: relative;
+    width: 239px;
+    height: 54px;
+    left: 0;
+    top: 250.5px;
+    margin-top: 40rem;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    text-transform: capitalize;
+    color: rgba(3, 5, 15, 0.5);
+}
+
+.Logout p{
+    padding: 10px 0px 0px 30px;
+}
+
+/*.Logout:focus{
+    width: 100%;
+    background: #606586;
+    color: #FFFFFF;
+}*/
+
+
+#navbar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    
+    position: absolute;
+    width: 1218px;
+    height: 80px;
+    left: 220px;
+    top: -6px;
+    z-index: 2;
+    
+    background: #F7F7F7;
+}
+
+.has-search, .user-avatar{
+    margin: 0 2rem;
+}
+
+.has-search .form-control {
+    padding-left: 5rem;
+}
+
+.has-search .fa-search {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    right: 1090px;
+    top: 23px;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    /*pointer-events: none;*/
+    cursor: pointer;
+    color: #aaa;
+}
+
+.user-avatar{
+    display: flex;
+    margin-right: 66px;
+    
+}
+
+.user-name{
+    margin-top: 9px;
+}
+
+.avatar{
+    display: flex;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #383E67;;
+    position: relative;
+    margin-left: 10px;
+}
+
+
+.intro-area{
+    position: absolute;
+    left:220px;
+    right: 0%;
+    top: 8.7%;
+    width: 100%;
+    bottom: 0%;
+}
+
+img{
+    width: 100%;
+    height: auto;
+    position: cover;
+}
+
+.inscription{
+    width: 100%;
+    position: absolute;
+    text-align: left;
+    text-transform: initial;
+    top: 15%;
+    left: 20%;
+    /*font-size: 20px;*/
+    color:#fff;
+    z-index: 2;
+}
+
+   
+
+
+.auto-backup{
+    position: absolute;
+    left: 19%;
+    right: 8%;
+    top: 45%;
+    bottom: 0%;
+    height: 100px;
+
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+}
+
+.auto-backup h2{
+    position: absolute;
+    left: 3.23%;
+    right: 86.01%;
+    top: 5.74%;
+    bottom: 74.59%;
+    height: 70px;
+    width: 300px;
+
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 24px;
+
+    color: #F50E0E;
+
+}
+
+.text-content{
+    display: flex;
+    justify-content: space-between;
+    margin-right: 2%;
+}
+
+.text-content .text p{
+    position: absolute;
+    left: 3.23%;
+    right: 12.83%;
+    top: 40.98%;
+    bottom: 0%;
+
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: #000000;
+
+}
+
+.text-content .icon i{
+    margin-top: 55%;
+    color: #D6E5E5;
+}
+
+
+
+.app-update{
+    position: absolute;
+    left: 19%;
+    right: 8%;
+    top: 70%;
+    bottom: 17.56%;
+    height: 100px;
+    /*margin-bottom: 20%;*/
+   
+
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+}
+
+.app-update h2{
+    position: absolute;
+    left: 3.23%;
+    right: 86.01%;
+    top: 5.74%;
+    bottom: 74.59%;
+    height: 70px;
+    width: 300px;
+
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 24px;
+
+    color: #F91616;
+
+}
+
+.app-update p{
+    position: absolute;
+    left: 2.35%;
+    right: 23.26%;
+    top: 41.98%;
+    bottom: 0%;
+
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: #000000;
+
+}
+
+.footer{
+    position: absolute;
+    height: 52px;
+    width: 100%;
+    left: 220px;
+    top: 1200px;  
+    background: #383E67;
+    
+    
+}
+

@@ -10,7 +10,18 @@ router.get('/', function(req, res) {
 
 //dashboard view
 router.get('/dashboard', isLoggedIn, (req, res) => {
-    res.render("dashboard");
-})
+    const user = req.user
+    res.render("dashboard", {
+        layout: false,
+        user})
+});
+
+router.get('/terms', isLoggedIn, (req, res) => {
+    const user = req.user
+    res.render("terms", {
+        layout: false,
+        user})
+});
+
 
  module.exports = router;

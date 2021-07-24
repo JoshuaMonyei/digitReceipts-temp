@@ -22,6 +22,7 @@ exports.signup = async (req, res) => {
     }
     if (errors.length > 0) {
         res.render('register', {
+            layout: false,
             errors,
             name,
             email,
@@ -32,6 +33,7 @@ exports.signup = async (req, res) => {
             if(existingUser) {
                 errors.push({ msg: 'Email already exists' });
                 res.render('register', {
+                    layout: false,
                   errors,
                   name,
                   email,
@@ -50,8 +52,8 @@ exports.signup = async (req, res) => {
                     service: "hotmail",
                     // created this outlook acct for project
                     auth: {
-                        user: "flashreceipts@outlook.com",
-                        pass: "zuri1234"
+                        user: process.env.MAIL,
+                        pass: process.env.MAILPASSWORD
                     },
                 })
                 // Mail structure and contents.
@@ -74,12 +76,13 @@ exports.signup = async (req, res) => {
                     if (err) {
                         errors.push({ msg: 'Error with mail verification please contact us for assistance' });
                         res.render('register', {
+                            layouts: false,
                           errors,
                           name,
                           email,
                           password
                         });
-                    } 
+                    }
                 // hash users password
                 bcrypt.genSalt(10, (err, salt) => {
                     bcrypt.hash(user.password, salt, (err, hash) => {
@@ -88,7 +91,7 @@ exports.signup = async (req, res) => {
                         user.password = hash
                         user.save()
                         req.flash('success_msg', "Thanks for registering. please check your email to activate your account.")
-                        return res.redirect('/');
+                        return res.redirect('/login');
                     })
                 })
                 
@@ -115,7 +118,7 @@ exports.verifyEmail = async (req, res, next) => {
         // change user .isVerified value to true
         user.isVerified = true;
         await user.save();
-        req.flash("success_msg", `Hello ${user.name}, welcome to Flash Receipts`)
+        req.flash("success_msg", `Hello ${user.name}, you've successfully confirmed your email`)
         return res.redirect('/login');
     } catch(error) {
         req.flash('error_msg', "Something went wrong. Please contact us for assistance.");
@@ -141,14 +144,13 @@ exports.login = async (req, res, next) => {
             if (!confirmedUser.isVerified){
                 req.flash('error_msg', "Please verify your email to login")
                 return res.redirect('/login');
-            } 
+            }
              //check password is correct
             let isMatch = bcrypt.compareSync(req.body.password, confirmedUser.password)
             if (!isMatch){
                 req.flash('error_msg', "Email and password do not match")
                 return res.redirect('/login')
             }
-            
             jwt.sign({
                 id: confirmedUser.id,
                 name: confirmedUser.name,
@@ -156,7 +158,7 @@ exports.login = async (req, res, next) => {
                 expiresIn: expiry
             }, (err, token) => {
                 res.cookie('token', token, {
-                    expires: new Date(Date.now() + 86400000),
+                    expires: new Date(Date.now() + 43200000),
                     secure: false, // set to true if your using https
                     httpOnly: true,
                   });
@@ -178,4 +180,5 @@ exports.logout =(req, res) => {
     req.flash('success_msg', "Logged out")
     return res.redirect('/')
 }
+
 

@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="/images/favicon.ico" />
+        <script src="https://kit.fontawesome.com/a66993f6d2.js" crossorigin="anonymous"></script>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"> 
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" href="/css/download_receipt.css">
+
+        <title>Download</title>
+    </head>
+    <body>
+        <div class="main">
+            <div class="panel">
+                <a class="frame7" href="/dashboard">
+                    <i class="material-icons" style="font-size:26px">dashboard</i>
+                    <p>Dashboard</p>
+                </a>
+                <a href="/user/notification" class="notification">
+                    <i class='far fa-bell' style='font-size:26px'></i>
+                    <p>Notification</p>
+                </a>
+                <a  href="/user/history" class="history">
+                    <i class="material-icons" style="font-size:26px">schedule</i>
+                    <p>History</p>
+                </a>
+        
+                <a href="/user/settings" class="settings">
+                    <i class="material-icons" style="font-size:26px">settings</i>
+                    <p>Settings</p>
+                </a>
+        
+                <a href="/logout" class="Logout">
+                    <i class="material-icons">exit_to_app</i>
+                    <p>Logout</p>
+                </a> 
+            </div>
+        
+            <nav id="navbar">
+                <div class="form-group has-search">
+                <a href="#"><i class="fa fa-search"></i></a>
+                    <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <div class="user-avatar">
+                    <div class="user-name">
+                        <strong><%- user.name %></strong>
+                    </div>
+                    <div class="avatar">
+                        <img src="/images/user-icon.png">
+                    </div>
+                </div>
+            </nav>
+            <div class="top">
+                <header>
+                    Your receipt is ready
+                </header>
+                <p>You may choose to download the receipt or download it as a PDF file</p>
+            </div>
+
+
+            <div class="receipt-templates" style="max-width: 70%; overflow: hidden;">
+
+
+            <!-----------------------receipt template 1----------------------->
+            <% if (receipt.formId === "1") { %>
+                <div class="container mt-5 mb-3">
+                  <div class="row d-flex justify-content-center">
+                      <div class="col-md-8">
+                          <div class="card" style="padding:30px">
+
+                              <!--------company name and logo---->
+                              <div class="d-flex flex-row justify-content-between" style="margin-bottom: 30px"> 
+                                  <div class="d-flex flex-column"> 
+                                      <span class="font-weight-bold"
+                                            style="font-size: 28px; font-weight: 700; color: #0c6299"><%- receipt.companyName %></span>
+                                  </div>
+                                  <img src="<%= receipt.companyLogo %>" width="64px">
+                              </div>
+
+                              <!----------company address, email and receipt info ------>
+                              <div class="d-flex align-items-start flex-column bd-highlight mb-3 w-50">
+                                <div class="bd-highlight" style="color: #999999"><small><%= receipt.companyAddress %></small></div>
+                                <div class="bd-highlight" style="color: #999999"><small><%= receipt.companyEmail %></small></div>
+                                <div class="bd-highlight" style="color: #999999"><small><%= receipt.companyPhoneNumber %></%=></small></div>
+                              </div>
+
+                              <!--------------------client(s) info---------------->
+                              <div class="d-flex justify-content-between">
+                                  <table class="table table-borderless">
+                                    <tbody>
+
+                                      <tr class="add">
+                                        <% if (receipt.clientAddress || receipt.clientName) { %>
+                                          <td style="margin-right: 5px; color: #0b6098; font-size:15px; font-weight:500; border: none;">Bill To</td>
+                                        <% } %>
+                                        <% if (receipt.client1Address || receipt.client1Name) { %>
+                                          <td style="color: #0b6098; font-size:15px; font-weight:500; border: none;">Delivery To</td>
+                                        <% } %>
+                                      </tr>
+
+                                      <tr class="content">
+                                        <% if (receipt.clientName) { %>
+                                          <td class="font-weight-bold" style="font-size:13px; border: none;" ><%= receipt.clientName %> </td>
+                                        <% } %>
+                                        <% if (receipt.client1Name) { %>
+                                          <td class="font-weight-bold" style="font-size:13px; border: none;"><%= receipt.client1Name %></td>
+                                        <% } %>
+                                      </tr>
+
+                                        <% if (receipt.clientAddress || receipt.client1Address) { %>
+                                          <tr class="content">
+                                            <% if (receipt.clientAddress) { %>
+                                              <td style="border: none;"><%= receipt.clientAddress %></td>
+                                            <% } %>
+                                            <% if (receipt.client1Address) { %>
+                                              <td style="border: none;"><%= receipt.client1Address %></td>
+                                            <% } %>
+                                          </tr>
+                                        <% } %>
+
+                                    </tbody>
+                                  </table>
+
+                                <!----------------receipt info---------------->
+                                  <table class="table table-borderless w-25">
+                                      <tbody>
+
+                                          <tr class="add">
+                                            <td style="color: #0b6098; font-size:15px; font-weight:500; text-align: start; border: none;">Receipt No </td>
+                                            <td style="text-align: start; font-size:13px; border: none;"><%= receipt.receiptId %></td>
+                                          </tr>
+
+                                          <tr class="content">
+                                            <td class="font-weight-bold" style="color: #0b6098; font-size:15px; font-weight:500; text-align: start; border: none;">Receipt Date</td>
+                                            <td style="text-align: start; font-size:13px; border: none;"><%= receipt.dateIssued %></td>
+                                          </tr>
+
+                                      </tbody>
+                                  </table>
+                              </div>
+                              
+                                <!------------Items---------------->
+                                <div class="products">
+                                  <table class="table table-borderless ">
+                                      <tbody>
+                                          <tr class="add" style="background-color:#0b6098; color:white">
+                                              <td class="text-center">DESCRIPTION</td>
+                                              <td class="text-center">QTY</td>
+                                              <td class="text-center">PRICE</td>
+                                              <td class="text-center">AMOUNT</td>
+                                          </tr>
+                                          <% receipt.items.forEach( (ele, index) => { %>
+                                                  <tr class="content">
+                                                    <td class="text-center" style="font-weight:700; border: none;"><%= ele[0] %></td>
+                                                    <td class="text-center" style="border: none;"><%= ele[1] %></td>
+                                                    <td class="text-center" style="border: none;"><%= ele[2] %></td>
+                                                    <td class="text-center" style="border: none;"><%= ele[3] %></td>
+                                                  </tr>
+                                            <% }) %>
+
+                                          <!--------------subTotal SaleTax Total------>
+                                          <tr class="content" style="">
+                                              <td style="border: none;"></td>
+                                              <td style="border: none;"></td>
+                                              <td class="text-center" style="font-size: 15px; font-weight: 700; border: none;">Subtotal</td>
+                                              <td class="text-center" style="border: none;"><%= receipt.subTotal %></td>
+                                          </tr>
+                                          <tr class="content">
+                                              <td style="border: none;"></td>
+                                              <td style="border: none;"></td>
+                                              <td class="text-center" style="font-size: 15px; font-weight: 700; border: none;">Sales Tax</td>
+                                              <td class="text-center" style="border: none;"><%= receipt.salesTax %></td></td>
+                                          </tr>
+                                          <tr class="content">
+                                              <td style="border: none;"></td>
+                                              <td style="border: none;"></td>
+                                              <td class="text-center" style="color: #3178a8; font-size:15px; font-weight: 700; border: none;">Total</td>
+                                              <td class="text-center" style="border: none;"><%= receipt.total %></td>
+                                          </tr>
+                                      </tbody>
+                                  </table>
+                          </div>
+                      </div>
+                  </div>
+                </div>
+            <% } %>
+
+            <!-----------------------end of receipt template 1------------------>
+
+            <!-----------------------receipt template 2-------------------------->
+            <% if (receipt.formId === "2") { %>
+                <div class="container mt-5 mb-3">
+                  <div class="row d-flex justify-content-center">
+                      <div class="col-md-8">
+                          <div class="card" style="padding:20px">
+
+                            <!------------Company Logo------------>
+                              <div class="d-flex justify-content-center"><img src="<%= receipt.companyLogo %>" width="64px"></div>
+                              <div class="d-flex justify-content-start" style="font-size: 28px; font-weight: 500; color: #de0a0a; margin-bottom: 40px">Receipt</div>
+                              
+
+                            <!------------Company Info, Receipt Number and Date------------>
+                            <div class="d-flex justify-content-between" style="margin-bottom: 20px">
+                              <% if (receipt.companyName) { %>
+                                <div class="d-flex flex-column justify-content-between w-75">
+                                  <div style="font-size: 15px; font-weight: 500; margin-bottom:10px">FROM</div>
+                                  <div style="margin-bottom:15px"><%= receipt.companyName %></div>
+                                  <div style="margin-bottom:15px; padding-right: 40px; font-weight: 500;"><%= receipt.companyAddress %></div>
+                                </div>
+                              <% } %>
+
+                              <div>
+                                <div class="d-flex justify-content-between" style="margin-bottom: 10px"> 
+                                  <div style="font-size: 15px; font-weigh: 700">RECEIPT NO</div>
+                                  <div style="margin-left: 10px; align-self: center; color: #585555"><%= receipt.receiptId %></div>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                  <div style="font-size: 15px; font-weigh: 700">Receipt Date</div>
+                                  <div style="margin-left: 10px; align-self: center; color: #585555"><%= receipt.dateIssued %></div>
+                                </div>
+                              </div>
+
+                            </div>
+
+
+                              <!--------------------Client(s) Info------------>
+                              <% if (receipt.clientName || receipt.clientAddress || receipt.client1Name || receipt.client1Address) { %>
+                                <div class="d-flex justify-content-start w-75" style="margin-bottom: 30px">  
+                                  <% if (receipt.clientName || receipt.clientAddress) { %>
+                                    <div class="d-flex flex-column" style="margin-right: 15px">
+                                      <div style="margin-bottom:15px">Bill To</div>
+                                      <div style="margin-bottom:15px; color: #ada8a8"><%= receipt.clientName %></div>
+                                      <div style="margin-bottom:15px; color: #ada8a8"><%= receipt.clientAddress %></div>
+                                    </div>
+                                  <% } %>
+                                  <% if (receipt.client1Name || receipt.client1Address) { %>
+                                    <div class="d-flex flex-column">
+                                      <div style="margin-bottom:15px">Delivery To</div>
+                                      <div style="margin-bottom:15px; color: #ada8a8"><%= receipt.client1Name %></div>
+                                      <div style="margin-bottom:15px; color: #ada8a8"><%= receipt.client1Address %></div>
+                                    </div>
+                                  <% } %>
+                                </div>
+                              <% } %>
+                              
+                              <!---------Items------------------------>
+                              <div class="products">
+                                  <table class="table table-borderless" style="border: 2px solid #635f5f; margin-bottom: 30px">
+                                      <tbody>
+                                          <tr class="add" style="color: #e53e3e">
+                                              <td>QTY</td>
+                                              <td>DESCRIPTION</td>
+                                              <td>PRICE</td>
+                                          </tr>
+                                          <% receipt.items.forEach( (ele, index) => { %>
+                                                  <tr class="content" style="border: 2px solid #635f5f">
+                                                    <td style="padding-left: 15px"><%= ele[1] %></td>
+                                                    <td><%= ele[0] %></td>
+                                                    <td><%= ele[2] %></td>
+                                                  </tr>
+                                            <% }) %>
+
+                                      </tbody>
+                                  </table>
+                                   
+                                  <table style="width: 100%">
+                                    <tr style="font-size: 14px; font-weight: 500; color: #de0a0a;">
+                                      <!----------sales tax------->
+                                      <td>
+                                        sales tax
+                                      </td>
+                                      <td>
+                                        <%= Number(receipt.subTotal) * (Number(receipt.salesTax)/100)  %>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <!-----------Total---------->
+                                    <tr style="font-size: 20px; font-weight: 700; color: #de0a0a; background-color: #d5d6d1">
+                                      <td>
+                                        TOTAL
+                                      </td>
+                                      <td>
+                                        <%= receipt.total %>
+                                      </td>
+                                    </tr>
+                                  </table>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                </div>
+            <% } %>
+            <!-----------------------end of receipt template 2------------------->
+
+            <!-----------------------receipt template 3-------------------------->
+            <% if (receipt.formId === "3") { %>
+                <div class="container mt-5 mb-3">
+                  <div class="row d-flex justify-content-center">
+                      <div class="col-md-8">
+                          <div class="card" style="position: relative; overflow: hidden;">
+
+                            <div style="padding: 50px; z-index: 1000">
+                            <!------------Company Logo------------>
+                              <div class="d-flex justify-content-start" style="margin-bottom: 40px">
+                                <div class="d-flex justify-content-center"><img src="<%= receipt.companyLogo %>" width="64px"></div>
+                                <div class="d-flex justify-conent-start" style="font-size: 54px; font-weight: 700; margin-left: 20px">Receipt</div>
+                              </div>
+
+                              <!--------------Client and Company info--------------->
+                              <div class="d-flex justify-content-between" style="margin-bottom: 70px;">
+                                <div class="d-flex flex-column" style="width: 300px;">
+                                  <div style="color: #646464; font-size: 17px; font-weight: 500;"><%= receipt.clientName %></div>
+                                  <div><span style="margin-right: 10px"><small style="color: #b2b2b2; font-size:12px;">Date Issued</small></span><span style="font-size: 13px"><%= receipt.dateIssued %></span></div>
+                                  <div><span style="margin-right: 17px"><small style="color: #b2b2b2; font-size:12px;">Receipt No</small></span><span style="font-size: 13px"><%= receipt.receiptId %></span></div>
+                                </div>
+                
+                                <div class="d-flex flex-column">
+                                  <div><small style="color: #b2b2b2; font-size:12px;"><%= receipt.companyName %></small></div>
+                                  <div><small style="color: #b2b2b2; font-size:12px;"><%= receipt.companyAddress %></small></div>
+                                  <div><small style="color: #b2b2b2; font-size:12px;"><%= receipt.companyEmail %></small></div>
+                                </div>
+                              </div>
+
+                              
+                              <!---------Items------------------------>
+                              <div class="products">
+                                  <table class="table table-borderless" style="margin-bottom: 100px;">
+                                      <tbody>
+                                          <tr class="add" style="color: #e53e3e; border-bottom: 2px solid #d1d6d7">
+                                              <th style="color: #767879; font-size: 17px;">Description</th>
+                                              <th style="color: #767879; font-size: 17px;" class="text-center">Price</th>
+                                              <th style="color: #767879; font-size: 17px;" class="text-center">Quantity</th>
+                                              <th style="color: #767879; font-size: 17px;" class="text-end">Subtotal</th>
+                                          </tr>
+                                          <% receipt.items.forEach( (ele, index) => { %>
+                                                  <tr class="content">
+                                                    <td style="color: #222223; font-size: 17px;"><%= ele[0] %></td>
+                                                    <td style="color: #222223; font-size: 17px;" class="text-center"><%= ele[2] %></td>
+                                                    <td style="color: #222223; font-size: 17px;" class="text-center"><%= ele[1] %></td>
+                                                    <td style="color: #e12525; font-size: 17px;" class="text-end"><%= ele[3] %></td>
+                                                  </tr>
+                                            <% }) %>
+
+                                      </tbody>
+                                  </table>
+                                    
+                                  <!------------sales tax--------->
+                                  <div class="d-flex justify-content-between" style="padding: 0 7px;"> 
+                                    <div style="font-size: 20px; font-weight: 600">Sales Tax</div>
+                                    <div style="font-size: 20px; font-weight: 600; color: #e12525"><%= Number(receipt.subTotal) * (Number(receipt.salesTax)/100)  %></div>
+                                  </div>
+
+                                  <!-----------Total---------->
+                                  <div class="d-flex justify-content-between" 
+                                    style=" 
+                                        border-bottom: 2px  solid #d1d6d7; 
+                                        border-top: 2px  solid #d1d6d7;
+                                        margin: 10px 0 100px 0;
+                                        padding: 0 7px;
+                                        ">
+                                    <div style="font-size: 28px; font-weight: 700">TOTAL</div>
+                                    <div style="font-size: 28px; font-weight: 700; color: #e12525"><%= receipt.total %></div>
+                                  </div>
+                              </div>
+                            </div>
+                              
+                            <div id="rectangle1" style="
+                                                    width: 3000px;
+                                                    height: 50px;
+                                                    background-color: #3bd3fc;
+                                                    position: absolute;
+                                                    top: 35%;
+                                                    left: -50%;
+                                                    transform: rotate(-20deg);
+                                                    overflow: hidden;
+                                                    z-index: 30;
+                                                    box-shadow: 0px 5px 10px 0 #155a6d;
+                                                    "
+                                                 ></div>
+                            <div id="rectangle2" style="
+                                                    width: 3000px;
+                                                    height: 150px;
+                                                    background-color: #3bd3fc;
+                                                    position: absolute;
+                                                    top: 37%;
+                                                    left: -50%;
+                                                    transform: rotate(-20deg);
+                                                    overflow: hidden;
+                                                    z-index: 20; 
+                                                    box-shadow: 0px 5px 30px 0 #155a6d;
+                                                    "
+                                                 ></div>
+                            <div id="rectangle3" style="
+                                                    width: 3000px;
+                                                    height: 600px;
+                                                    background-color: #3bd3fc;
+                                                    position: absolute;
+                                                    top: 37%;
+                                                    left: -50%;
+                                                    transform: rotate(-20deg);
+                                                    overflow: hidden;
+                                                    z-index: 10;
+                                                    box-shadow: 0px -5px 10px 0 #155a6d;
+                                                    "
+                                                 ></div>
+                          </div>
+                      </div>
+                  </div>
+                </div>
+            <% } %>
+            <!-----------------------end of receipt template 3------------------->
+            </div>
+
+            
+        </div>
+    
+            <div class="receipt">
+                <!--div class="btn-container"-->
+                <button onclick="location.href='/receipt-mailForm'" value="Go to email form" class="send-btn">Send</button>
+                <!-- <button class="edit-btn">Back to edit</button> -->
+                <button onclick="location.href='<%= receipt.pdfLink%>'" value="Go to download page" class="pdf-btn">Download Pdf</button>
+                <!--/div-->
+                
+            </div>
+        
+    </body>
+</html>

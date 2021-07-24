@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.mywidth {
+  width: 189 px !important;
+}
+
+.btn-done {
+  background-color: #383e67 !important;
+  color: #ffffff !important;
+}
+
+.text-dred {
+  color: #ad3546 !important;
+}
+
+.sub-bg {
+  background-color: #474950;
+}
+
+#logo{
+  width: max-content;
+}

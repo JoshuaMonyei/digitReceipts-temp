@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/images/favicon.ico" />
+    <script src="https://kit.fontawesome.com/a66993f6d2.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="/css/notifications.css">
+    <title>Flash Receipt-notification</title>
+</head>
+<body>
+    <div class="panel">
+        <a href="/dashboard" class="frame7">
+            <i class="material-icons" style="font-size:26px">dashboard</i>
+            <p>Dashboard</p>
+        </a>
+        <a href="/user/notification" class="notification">
+                <i class="material-icons" style="font-size:26px">add_alert</i>
+                <p>Notification</p>
+        </a>
+        <a href="/user/history" class="history">
+            <i class="material-icons" style="font-size:36px">schedule</i>
+            <p>History</p>
+        </a>
+
+        <a  href="/user/settings" class="settings">
+            <i class="material-icons" style="font-size:36px">settings</i>
+            <p>Settings</p>
+        </a>
+
+        <a  href="/logout" class="Logout">
+            <i class="material-icons">exit_to_app</i>
+            <p>Logout</p>
+        </a> 
+    </div>
+    <nav id="navbar">
+        <div class="form-group has-search">
+        <a href="#"><i class="fa fa-search"></i></a>
+            <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <div class="user-avatar">
+            <div class="user-name">
+                <strong><%- user.name %></strong>
+            </div>
+            <div class="avatar">
+                <img src="/images/user-icon.png">
+            </div>
+        </div>
+    </nav>
+
+    <section id="intro-area">
+        <div class="intro-area">
+            <img src="/images/notifications bg.png">
+        </div>
+        <div class="inscription">
+            <h1>
+               Notifications
+            </h1>
+            <h5>Get the latest news and update about your apps<h5>
+        </div>
+    </section>
+    <section class="notifications">
+        <div class="auto-backup">
+            <h2>Auto Backup</h2>
+            <div class="text-content">
+                <div class="text">
+                    <p>
+                        We strongly recommend that you should link the app to Google Drive and/or turn up the auto-backup feature.
+                    </p>
+                </div>
+                <div class="icon">
+                    <a href="#"><i class="material-icons" style="font-size:48px;">cloud_upload</i></a>
+                </div>
+            </div>
+            
+        </div>
+        <div class="app-update">
+            <h2>Application Update</h2>
+            <div class="text-content">
+                <div class="text">
+                    <p>
+                        New version 243 is available. Please update your application.
+                    </p>
+                </div>
+                <div class="icon">
+                    <a href="#"><i class="material-icons" style="font-size:48px;">autorenew</i></a>
+                </div>
+            </div>
+           
+        </div>
+        
+    </section>
+</body>
+</html>

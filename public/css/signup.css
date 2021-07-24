@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter';
+    box-sizing: border-box;
+}
+
+body{
+   
+    background: url("/images/accounting-image.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    
+}
+
+#nav{
+    position: static;
+    height: 15vh;
+    background-color: white;
+    z-index: 2;
+    width: 100%;
+    overflow: visible;
+    margin-bottom: 1.5rem;
+
+ }
+
+.nav-bar{
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+
+    
+}
+
+
+.links{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 20rem;
+    /*padding: 15px;*/
+    list-style: none;
+
+}
+
+
+.signup{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 32px;
+  
+  position: absolute;
+  width: 150px;
+  height: 41px;
+  left: 1015.25px;
+  top: 25.5px;
+  
+  background: #606586;
+  border-radius: 8px;
+}
+
+.signup a{
+  color: white;
+  text-decoration: none;
+}
+
+.login{
+  /*margin-right: 40px;*/
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 12px;
+  
+  position: absolute;
+  width: 85px;
+  height: 45px;
+  left: 900.25px;
+  top: 25.5px;
+  
+
+
+}
+
+.login a{
+  position: static;
+width: 80px;
+height: 29px;
+left: 12px;
+top: 8px;
+
+font-family: Inter;
+font-style: normal;
+font-weight: 500;
+font-size: 24px;
+line-height: 29px;
+/* identical to box height */
+
+display: flex;
+align-items: center;
+letter-spacing: -0.582661px;
+color: #03050F;
+text-decoration: none;
+
+
+/* Inside Auto Layout */
+
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 10px;
+ 
+}
+
+
+.logo{
+   margin-left: 10px;
+   width: 16%;
+}
+
+.SignUpPage{
+    background: #fffdfd;
+    position: absolute;
+    top: 25%;
+    left: 7%;
+    width: 370px;
+    padding: 30px 50px;
+    border-radius: 20px;
+    width: 480px;
+}
+.SignUpPage h1{
+    font-size: 32px;
+    margin: 10px 0;
+}
+.SignUpPage p{
+    font-size: 14px;
+    color: grey;
+} 
+label{
+    font-size: 14px;
+    color: #03050f; 
+    font-weight: 600;
+}
+
+form{
+    margin-top: 50px;
+    min-height: 10px;
+}
+input{
+    font-size: 15px;
+    padding: 10px 10px;
+    width: 90%;
+    border: none;
+    border-radius: 5px;
+    background: transparent;
+    background: rgba(247, 244, 244, 0.973);
+    outline: none;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #03050F;
+}
+.SignUpPage button{
+    font-size: 15px;
+    margin-top: 40px;
+    padding: 10px 10px;
+    width: 96%;
+    border: none;
+    border-radius: 7px;
+    outline: none;
+    background-color: #101849;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.log-in{
+    margin-top: 50px;
+    color: grey;
+}
+.log-in a{
+    margin-left: 5px;
+    color: #922238;
+    text-decoration: none;
+    font-weight: 800;
+}
+.overlap{
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    color: #ffffff;
+    font-size: 23px;
+    font-weight: bolder;
+    text-shadow: 0px 4px 4px 4px #00000040;  
+}

@@ -10,7 +10,6 @@ exports.isLoggedIn = async (req,res, next) => {
         req.flash('error_msg', "No access, Please login")
         return res.redirect('/login');
     }
-   
     //decode token and check if valid
     jwt.verify(token, secret, (err, decodedToken) => {
         if (err) return res.status(500).json({err})

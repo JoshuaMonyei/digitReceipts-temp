@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/a66993f6d2.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="./css/receipt-dowlnoad.css">
+    <title>Downloaded Receipt</title>
+</head>
+<body>
+    <!-- Downloaded Receipt Page  -->
+    <div class="panel">
+        <a href="/dashboard" class="dashboard">
+            <i class="material-icons" style="font-size:20px">dashboard</i>
+            <p>Dashboard</p>
+        </a>
+        <a href="/user/notification" class="notification">
+            <i class='far fa-bell' style='font-size:20px'></i>
+                <p>Notification</p>
+        </a>
+        <a href="/user/history" class="history">
+            <i class="material-icons" style="font-size:30px">schedule</i>
+            <p>History</p>
+        </a>
+
+        <a  href="/user/settings" class="settings">
+            <i class="material-icons" style="font-size:30px">settings</i>
+            <p>Settings</p>
+        </a>
+
+        <a  href="/logout" class="Logout">
+            <i class="material-icons">exit_to_app</i>
+            <p>Logout</p>
+        </a> 
+    </div>
+       
+    <div class="main-content">
+        <header>
+            <div class="header">
+               <div class="search-wrapper">
+                   <span class="fa fa-search"></span>
+                   <input type="search" placeholder="Search here"/>
+               </div>
+               <div class="user-wrapper">
+                <div>
+                    <h5><%- user.name %></h5>
+               </div>
+                   <img src="/images/user-icon.png" width="40px" height="40px" alt="profile picture">
+                   
+               </div>
+            </div>
+        </header>
+        <!-- <button onclick="location.href='/receipt-downloadLink'" value="Go to download page" class="pdf-btn">Download Pdf</button -->
+        <section>
+            <div class="feedback">
+                <p>Click the link below to download receipt.</p>
+            </div>
+            <img src="/images/amico.png" alt="receipt downloaded">
+            <!-- <a href="/dashboard">Back to dashboard</a> -->
+            <a href= "/<%- user.name%>">Back to dashboard</a>
+        </section>
+       
+    </div>
+</body>
+</html>

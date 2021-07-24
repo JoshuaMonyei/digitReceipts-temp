@@ -25,6 +25,12 @@ const UserSchema = new mongoose.Schema({
       type: mongoose.Schema.Types.ObjectId,
       ref: "Receipts"
     }],
+    notifications: [{
+      type: String
+    }],
+    logoLink: {
+      type: String,
+    },
 },
 {timestamps: true})
 

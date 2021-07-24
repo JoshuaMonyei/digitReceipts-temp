@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="shortcut icon" href="/images/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"> 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  </head>
+
+  <body>
+
+      <div class="container mt-5 mb-3" style="padding: 5px;">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-8">
+                <div class="card" style="position: relative; overflow: hidden;">
+
+                  <div style="padding: 50px; z-index: 1000">
+                  <!------------Company Logo------------>
+                    <div class="d-flex justify-content-start" style="margin-bottom: 40px">
+                      <div class="d-flex justify-content-center"><img src="<%= receipt.companyLogo %>" width="64px"></div>
+                      <div class="d-flex justify-conent-start" style="font-size: 54px; font-weight: 700; margin-left: 20px">Receipt</div>
+                    </div>
+
+                    <!--------------Client and Company info--------------->
+                    <div class="d-flex justify-content-between" style="margin-bottom: 70px;">
+                      <div class="d-flex flex-column" style="width: 300px;">
+                        <div style="color: #646464; font-size: 17px; font-weight: 500;"><%= receipt.clientName %></div>
+                        <div><span style="margin-right: 10px"><small style="color: #b2b2b2; font-size:12px;">Date Issued</small></span><span style="font-size: 13px;"><%= receipt.dateIssued %></span></div>
+                        <div><span style="margin-right: 17px"><small style="color: #b2b2b2; font-size:12px;">Receipt No</small></span><span style="font-size: 13px;"><%= receipt.receiptId %></span></div>
+                      </div>
+      
+                      <div class="d-flex flex-column">
+                        <div><small style="color: #b2b2b2; font-size:12px;"><%= receipt.companyName %></small></div>
+                        <div><small style="color: #b2b2b2; font-size:12px;"><%= receipt.companyAddress %></small></div>
+                        <div><small style="color: #b2b2b2; font-size:12px;"><%= receipt.companyEmail %></small></div>
+                      </div>
+                    </div>
+
+                    
+                    <!---------Items------------------------>
+                    <div class="products">
+                        <table class="table table-borderless" style="margin-bottom: 100px;">
+                            <tbody>
+                                <tr class="add" style="color: #e53e3e; border-bottom: 2px solid #d1d6d7">
+                                    <th style="color: #767879; font-size: 17px;">Description</th>
+                                    <th style="color: #767879; font-size: 17px;" class="text-center">Price</th>
+                                    <th style="color: #767879; font-size: 17px;" class="text-center">Quantity</th>
+                                    <th style="color: #767879; font-size: 17px;" class="text-end">Subtotal</th>
+                                </tr>
+                                <% receipt.items.forEach( (ele, index) => { %>
+                                        <tr class="content">
+                                          <td style="color: #222223; font-size: 14px;"><%= ele[0] %></td>
+                                          <td style="color: #222223; font-size: 14px;" class="text-center"><%= ele[2] %></td>
+                                          <td style="color: #222223; font-size: 14px;" class="text-center"><%= ele[1] %></td>
+                                          <td style="color: #e12525; font-size: 14px;" class="text-end"><%= ele[3] %></td>
+                                        </tr>
+                                  <% }) %>
+
+                            </tbody>
+                        </table>
+                          
+                        <!------------sales tax--------->
+                        <div class="d-flex justify-content-between" style="padding: 0 7px;"> 
+                          <div style="font-size: 20px; font-weight: 600">Sales Tax</div>
+                          <div style="font-size: 20px; font-weight: 600; color: #e12525"><%= Number(receipt.subTotal) * (Number(receipt.salesTax)/100)  %></div>
+                        </div>
+
+                        <!-----------Total---------->
+                        <div class="d-flex justify-content-between" 
+                          style=" 
+                              border-bottom: 2px  solid #d1d6d7; 
+                              border-top: 2px  solid #d1d6d7;
+                              margin: 10px 0 100px 0;
+                              padding: 0 7px;
+                              ">
+                          <div style="font-size: 28px; font-weight: 700">TOTAL</div>
+                          <div style="font-size: 28px; font-weight: 700; color: #e12525"><%= receipt.total %></div>
+                        </div>
+                    </div>
+                  </div>
+                    
+                  <div id="rectangle1" style="
+                                          width: 3000px;
+                                          height: 50px;
+                                          background-color: #3bd3fc;
+                                          position: absolute;
+                                          top: 35%;
+                                          left: -50%;
+                                          transform: rotate(-20deg);
+                                          overflow: hidden;
+                                          z-index: 30;
+                                          box-shadow: 0px 5px 10px 0 #155a6d;
+                                          "
+                                       ></div>
+                  <div id="rectangle2" style="
+                                          width: 3000px;
+                                          height: 150px;
+                                          background-color: #3bd3fc;
+                                          position: absolute;
+                                          top: 37%;
+                                          left: -50%;
+                                          transform: rotate(-20deg);
+                                          overflow: hidden;
+                                          z-index: 20; 
+                                          box-shadow: 0px 5px 30px 0 #155a6d;
+                                          "
+                                       ></div>
+                  <div id="rectangle3" style="
+                                          width: 3000px;
+                                          height: 600px;
+                                          background-color: #3bd3fc;
+                                          position: absolute;
+                                          top: 37%;
+                                          left: -50%;
+                                          transform: rotate(-20deg);
+                                          overflow: hidden;
+                                          z-index: 10;
+                                          box-shadow: 0px -5px 10px 0 #155a6d;
+                                          "
+                                       ></div>
+                </div>
+            </div>
+        </div>
+      </div>
+
+  </body>
+</html>

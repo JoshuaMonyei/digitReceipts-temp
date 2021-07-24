@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/images/favicon.ico" />
+    <title>Settings</title>
+    <script src="https://kit.fontawesome.com/a66993f6d2.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="/css/settings.css">
+</head>
+<body>
+    <div class="panel">
+        <a href="/dashboard" class="dashboard">
+            <i class="material-icons" style="font-size:20px">dashboard</i>
+            <p>Dashboard</p>
+        </a>
+        <a href="/user/notification" class="notification">
+                <i class="material-icons" style="font-size:20px">add_alert</i>
+                <p>Notification</p>
+        </a>
+        <a href="/user/history" class="history1">
+            <i class="material-icons" style="font-size:30px">schedule</i>
+            <p>History</p>
+        </a>
+
+        <a  href="/user/settings" class="settings">
+            <i class="material-icons" style="font-size:30px">settings</i>
+            <p>Settings</p>
+        </a>
+
+        <a  href="/logout" class="Logout">
+            <i class="material-icons">exit_to_app</i>
+            <p>Logout</p>
+        </a> 
+    </div>
+    <div class="main-content">
+        <header>
+            <div class="header">
+               <div class="search-wrapper">
+                   <span class="las la-search"></span>
+                   <input type="search" placeholder="Search here"/>
+               </div>
+               <div class="user-wrapper">
+                <div>
+                    <h5><%- user.name %><h5>
+               </div>
+                   <img src="/images/profile picture.jpg" width="40px" height="40px" alt="">
+                   
+               </div>
+            </div>
+        </header>
+        <main>
+            <div class="header-main">
+                <h1>Settings</h1>
+                <p>Make changes to paper size output and get accustomed to our terms of service</p>
+            </div>
+            <div class="content">
+                <div class="content-1">
+                    <a
+                        href="/terms">
+                        <h3>Please Note Terms and Conditions</h3>
+                        <small>Manage the Terms and Conditions as shown on your receipt</small>
+                    </a>
+                    <div class="icon1">
+                        <span><img src="/images/Vector.png"  alt=""></span>
+                    </div>
+                </div>
+                <div class="content-1">
+                    <a
+                        href="/user/paper-settings">
+                        <h3>Paper size settings</h3>
+                        <small>Format the paper output</small>
+                    </a>
+                    <div class="icon2">
+                        <span><img src="/images/Vector2.png"  alt=""></span>
+                    </div>
+                </div>
+            </div>
+           <div>
+               <footer></footer>
+           </div>
+        </main>
+    </div>    
+</body>
+</html>
+

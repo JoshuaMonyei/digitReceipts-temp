@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/images/favicon.ico" />
+    <script src="https://kit.fontawesome.com/a66993f6d2.js" crossorigin="anonymous"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="/css/send-emails.css">
+    <title>Mail receipt</title>
+</head>
+<body>
+    <div class="main">
+        <div class="panel">
+            <a class="frame7" href="/dashboard">
+                <i class="material-icons" style="font-size:26px">dashboard</i>
+                <p>Dashboard</p>
+            </a>
+            <a href="/user/notification" class="notification">
+                <i class='far fa-bell' style='font-size:26px'></i>
+                <p>Notification</p>
+            </a>
+            <a  href="/user/history" class="history">
+                <i class="material-icons" style="font-size:26px">schedule</i>
+                <p>History</p>
+            </a>
+    
+            <a href="/user/settings" class="settings">
+                <i class="material-icons" style="font-size:26px">settings</i>
+                <p>Settings</p>
+            </a>
+    
+            <a href="/logout" class="Logout">
+                <i class="material-icons">exit_to_app</i>
+                <p>Logout</p>
+            </a> 
+        </div>
+    
+        <nav id="navbar">
+            <div class="form-group has-search">
+            <a href="#"><i class="fa fa-search"></i></a>
+                <input type="text" class="form-control" placeholder="Search">
+            </div>
+            <div class="user-avatar">
+                <div class="user-name">
+                    <strong><%- user.name %></strong>
+                </div>
+                <div class="avatar">
+                    <img src="/images/user-icon.png">
+                </div>
+            </div>
+        </nav>
+
+        <div class="top">
+            <header>
+                Send your receipt via email
+            </header>
+            <p>Fill in the details below and send your receipt via email.</p>
+        </div>
+        <div class="main-content">
+        <div class="bg-avatar">
+            <img class="background-avatar" src="/images/cuate.png">
+        </div>
+
+        
+        <form action="/receipt-mailForm" method="POST">
+            <h5>Please fill in details below</h5>
+            <div class="fields">
+                <input class="control" type="email" name="email" placeholder="Enter email address here" required>
+                <img class="icon" src="/images/coolicon.png"> 
+            </div>
+
+            <div class="fields">
+                <input class="control" type="text" name="name" placeholder="Enter customer name here" required>
+                <img class="icon1" src="/images/user-icon.png">
+            </div>
+            <button type="submit" class="btn">Send</button>
+        </form>
+            
+    </div>
+    
+</body>
+</html>

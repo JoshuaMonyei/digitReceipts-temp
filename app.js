@@ -4,13 +4,23 @@ const expressLayouts = require('express-ejs-layouts');
 const flash = require('connect-flash');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
+const fileUpload = require('express-fileupload')
 const userRoutes = require('./routes/userRoutes');
+const receiptRoutes = require('./routes/receiptRoutes');
 const Routes = require('./routes/index');
 
 require('dotenv').config();
 
 // Initialize express
 const app = express();
+
+// use static files
+app.use(express.static('./public'));
+
+// enable files upload
+app.use(fileUpload({
+    createParentPath: true
+}))
 
 // EJS
 app.use(expressLayouts);
@@ -43,7 +53,7 @@ app.use((req, res, next) => {
 // Initialize Express middleware
 app.use(express.json({extended: false}));
 app.use(cookieParser());
-app.use(Routes, userRoutes);
+app.use(Routes, userRoutes, receiptRoutes);
 
 const port = process.env.PORT || 9001
 

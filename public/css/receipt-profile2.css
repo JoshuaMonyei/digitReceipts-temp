@@ -1,0 +1,370 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.mywidth {
+  width: 189px !important;
+}
+
+.btn-done {
+  background-color: #383e67 !important;
+  color: #ffffff !important;
+}
+
+.text-dred {
+  color: #ad3546 !important;
+}
+
+.sub-bg {
+  background-color: #474950;
+}
+
+/* -------------------------- New Receipt --------------------------- */
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  max-width: 1440px;
+  width: 100%;
+}
+
+.row > * {
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+}
+
+.my-6 {
+  margin: 10em auto !important;
+}
+
+.mt-6 {
+  margin-top: 12em !important;
+}
+
+.top-right {
+  background-color: transparent !important;
+  position: relative;
+}
+
+.mt-7 {
+  margin-top: 16em !important;
+}
+
+.button {
+  width: 145px;
+}
+
+.top-right {
+  max-height: 100vh;
+  background-color: #f4f4f4;
+  background-size: cover;
+}
+
+.larger {
+  width: 25px !important;
+  height: 25px !important;
+}
+
+.bottom-container {
+  min-height: 60px;
+  width: 100%;
+  z-index: 11111;
+  bottom: 0;
+  right: 0;
+  transform: translate(0, -50%);
+  background-color: #383e67;
+  margin-top: 18.25em;
+}
+
+.btn-done {
+  background-color: #383e67 !important;
+  color: #ffffff !important;
+}
+
+.bg-hash {
+  background-color: #cfd1db !important;
+}
+
+.text-red {
+  color: #ff0909 !important;
+}
+
+.text-dred {
+  color: #ad3546 !important;
+}
+
+.search-input {
+  background-color: transparent !important;
+  outline: 0 !important;
+  border: 0 !important;
+}
+
+.search {
+  border: 1px solid #afb2c2 !important;
+  padding: 0 10px !important;
+  border-radius: 5px;
+  background-color: transparent !important;
+}
+
+.settings {
+  background-color: #606586 !important;
+}
+
+.dashboard {
+  display: flex !important;
+  place-items: center !important;
+  align-items: center;
+  align-content: center;
+}
+
+.log-out {
+  margin-top: 38.5rem !important;
+}
+
+.set-dark {
+  width: 20px;
+  height: 20px;
+}
+
+.left-hand {
+  position: relative;
+}
+
+.arrow {
+  position: absolute;
+  background-color: #fff;
+  box-shadow: 1px 0.1px 1px 1px rgba(0, 0, 0, 0.4);
+  top: 11%;
+  right: -10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 13px;
+  border-radius: 5px;
+}
+
+/* .core-color {
+  color: #383e67 !important;
+} */
+
+.tin {
+  border-bottom: 2px solid rgba(150, 146, 146, 0.3);
+  font-size: 14px;
+  color: #444 !important;
+  font-weight: 200 !important;
+}
+
+.core-bg {
+  background-color: #383e67 !important;
+}
+
+@media only screen and (max-width: 768px) {
+  .ing {
+    width: 300px !important;
+    padding: 0 10px !important;
+    height: auto !important;
+    gap: 10px !important;
+    font-size: 14px !important;
+  }
+
+  .rcp-syn {
+    display: flex;
+    align-items: center;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    padding: 0 30px;
+  }
+
+  .arrow {
+    display: none;
+  }
+
+  .dashboard {
+    margin: 5px auto !important;
+  }
+  .top {
+    flex-direction: column-reverse;
+    background-color: transparent !important;
+  }
+
+  .top-right {
+    background-color: transparent !important;
+  }
+  .warning {
+    display: flex;
+    align-items: center;
+    padding: 10px auto !important;
+    flex-direction: column;
+    background-color: transparent !important;
+    text-align: center;
+    width: 100%;
+  }
+  .buton {
+    width: 100% !important;
+    margin-top: 20px;
+  }
+}
+
+.inner-container {
+  position: relative;
+  /* margin: 0 auto; */
+}
+
+.final-count {
+  border-top: 1px solid #000;
+  padding: 0 10px;
+  margin: 8rem auto 3rem !important;
+  border-bottom: 1px solid #000;
+  z-index: 1111;
+}
+
+.last-side {
+  clip-path: polygon(0 92%, 100% 25%, 100% 100%, 59% 100%, 0 100%);
+  background-color: #02d0ff;
+  height: 320px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.last-side::before {
+  content: '';
+  clip-path: polygon(0 92%, 100% 25%, 100% 100%, 59% 100%, 0 100%);
+
+  background-color: #347fcb;
+  border: 1px solid;
+
+  height: 320px;
+  width: 100%;
+  position: absolute;
+  bottom: -55%;
+  left: 0;
+  z-index: -1;
+}
+
+.last-side::after {
+  content: '';
+  clip-path: polygon(0 92%, 100% 25%, 100% 100%, 59% 100%, 0 100%);
+  background-color: #28bdff;
+  box-shadow: 6px 0 2px 0 rgba(0, 0, 0, 4);
+  height: 320px;
+  width: 100%;
+  position: absolute;
+  bottom: -20%;
+  left: 0;
+  z-index: -2;
+}
+
+.rhs-content {
+  background-color: #e5e5e5;
+  position: relative;
+}
+
+.bi-plus-circle-fill {
+  font-size: 35px;
+  color: #383e67;
+  transition: color all 0.5s ease;
+}
+
+.bi-plus-circle-fill:hover {
+  font-size: 35px;
+  color: #3346c0;
+  transition: color all 0.5s ease;
+}
+
+.bi {
+  font-size: 50px;
+}
+
+.logo {
+  width: 60px;
+  height: 60px;
+}
+
+.tpc {
+  color: #ffffff;
+  background: linear-gradient(
+    252.57deg,
+    #383e67 28.99%,
+    rgba(146, 34, 56, 0.904508) 78.14%,
+    rgba(255, 0, 0, 0.79) 144.18%
+  );
+}
+
+.pic {
+  height: 700px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.ing {
+  background: linear-gradient(
+    136.9deg,
+    rgba(251, 241, 241, 0.1) 5.77%,
+    rgba(251, 241, 241, 0.7) 91.15%
+  );
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 40px;
+  width: 480px;
+  height: 404px;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+}
+
+.lady {
+  background: url(.png);
+  box-sizing: border-box;
+  width: 92.11px;
+  height: 70.63px;
+}
+
+.lnt-1 {
+  width: 60.7px !important;
+  height: 2px !important;
+  background-color:white !important;
+}
+
+.lnt-2 {
+  width: 189.98px !important;
+  height: 2px !important;
+  background-color:white!important;
+}
+
+.rcp-syn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+  color: #383e67!important;
+}
+
+.text-white {
+  color:white;
+}
+
+.img-list {
+  width: 39px;
+  height: 33px;
+}
+
+.dvd {
+  width: 93px;
+  height: 12px;
+  background-color:#383e67;
+}

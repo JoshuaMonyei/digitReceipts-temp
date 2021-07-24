@@ -1,0 +1,257 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Inter';   
+}
+
+body{
+    background-color: #F7F7F7;
+    overflow-x: hidden;
+
+}
+
+.panel{
+    width: 222px;
+    height: 1250px;
+    
+    background: #FFFFFF;
+    box-shadow: 0px 0px 30px 5px rgba(0, 0, 0, 0.1);
+    
+}
+
+.dashboard{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px 0px 0px 30px;
+
+    width: 100%;;
+    height: 54px;
+    color: #898A8E;
+    border: 0.75px solid rgba(255, 255, 255, 0.21);
+    box-sizing: border-box;
+    background:#FFFFFF;
+
+    
+}
+
+
+.dashboard p{
+    padding: 10px 0px 0px 30px;
+    
+}
+
+.dashboard:active{
+    width: 100%;
+    background: #606586;
+    color: #FFFFFF;
+}
+
+.notification{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px 0px 0px 30px;
+    width: 100%;
+    height: 54px;
+    border: 0.75px solid rgba(255, 255, 255, 0.21);
+    box-sizing: border-box;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    text-transform: capitalize;
+    color: rgba(3, 5, 15, 0.5);
+
+}
+
+.notification p{
+    padding: 10px 0px 0px 30px;
+    
+}
+
+
+.notification:active{
+    width: 100%;
+    color: #FFFFFF;
+    background: #606586;
+}
+
+
+.history{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px 0px 0px 30px;
+    width: 100%;
+    height: 54px;
+    margin-top: 3rem;
+   
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    text-transform: capitalize;
+    color: rgba(3, 5, 15, 0.5);
+}
+
+.history p{
+    padding: 10px 0px 0px 30px;
+}
+
+.history:active{
+    width: 100%;
+    background: #606586;
+    color: #FFFFFF;
+}
+
+.settings{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px 0px 0px 30px;
+    width: 100%;
+    height: 54px;
+    margin-top: 4rem;
+   
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    text-transform: capitalize;
+    color: rgba(3, 5, 15, 0.5);
+}
+
+.settings p{
+    padding: 10px 0px 0px 30px;
+}
+
+.settings:active{
+    width: 100%;
+    background: #606586;
+    color: #FFFFFF;
+}
+
+.Logout{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px 0px 0px 30px;
+    width: 100%;
+    height: 54px;
+    margin-top: 40rem;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    text-transform: capitalize;
+    color: rgba(3, 5, 15, 0.5);
+}
+
+.Logout p{
+    padding: 10px 0px 0px 30px;
+}
+
+.right-section{
+    display: flex;
+}
+
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    
+    width: 1218px;
+    height: 80px;
+    z-index: 2;
+}
+
+.search-wrapper{
+    background: transparent;
+    background: #AFB2C2, 50%;
+    color: #AFB2C2;
+    border: 1px solid #AFB2C2;
+    border-radius: 5px;
+    height: 40px;
+    width: 200px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.search-wrapper span{
+    display: inline-block;
+    font-size: 15px;   
+    margin-left: 20px;    
+}
+
+.search-wrapper input{
+    background: transparent;
+    background: #AFB2C2, 50%;
+    padding: .5rem;
+    border: none;
+    outline: none;    
+}
+
+.user-wrapper{
+    margin-top: -10px;
+    display: flex;
+    align-items: center;
+    color: #03050F;
+}
+
+.user-wrapper img{
+    border-radius: 50%;
+    margin-left: 10px;
+    margin-right: 50px;
+}
+
+.feedback{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 822px;
+    height: 48px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 29px;
+    letter-spacing: -0.582661px;
+    color: #393F68;    
+}
+
+section img{
+    width: 435.1px;
+    height: 418.83px;
+}
+
+section a{
+    font-style: normal;
+    font-weight: 300;
+    font-size: 13px;
+    line-height: 13px;
+    display: flex;
+    align-items: flex;
+    letter-spacing: -0.58px;
+    color: #F70D0D;
+}
+
+.footer{
+    height: 52px;
+    width: 100%;
+    background: linear-gradient(200.5deg, #383E67 20%, rgba(140, 34, 56, 0.984508) 78.14%, rgba(255, 0, 0, 0.79) 144.18%);
+}

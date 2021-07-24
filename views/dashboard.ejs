@@ -1,1 +1,98 @@
-<h1>User logged in Successfully</h1>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="shortcut icon" href="/images/favicon.ico" />
+    <script src="https://kit.fontawesome.com/a66993f6d2.js" crossorigin="anonymous"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"-->
+    <!-- <link
+      rel="stylesheet"
+      href="https://bootswatch.com/4/journal/bootstrap.min.css"
+    /> -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="/css/dashboard.css">
+    <title>Flash Receipt - dashboard</title>
+  </head>
+  <body>  
+    <div class="panel">
+        <a class="frame7" href="/">
+            <i class="material-icons" style="font-size:26px">dashboard</i>
+            <p>Home</p>
+        </a>
+        <a href="/user/notification" class="notification">
+            <i class='far fa-bell' style='font-size:26px'></i>
+            <p>Notification</p>
+        </a>
+        <a  href="/user/history" class="history">
+            <i class="material-icons" style="font-size:26px">schedule</i>
+            <p>History</p>
+        </a>
+
+        <a href="/user/settings" class="settings">
+            <i class="material-icons" style="font-size:26px">settings</i>
+            <p>Settings</p>
+        </a>
+
+        <a href="/logout" class="Logout">
+            <i class="material-icons">exit_to_app</i>
+            <p>Logout</p>
+        </a> 
+    </div>
+
+
+    <nav id="navbar">
+      <div class="form-group has-search">
+        <a href="#"><i class="fa fa-search"></i></a>
+        <input type="text" class="form-control" placeholder="Search">
+      </div>
+      <div class="user-avatar">
+          <div class="user-name">
+            <strong style="overflow: hidden"><%- user.name %></strong>
+          </div>
+          <div class="avatar">
+            <img src="/images/user-icon.png">
+          </div>
+      </div>
+    </nav>
+    
+    <section id="intro-area">
+        <div class="intro-area" style="overflow: hidden">
+            <img src="/images/dashboard.png">
+        </div>
+        <div class="inscription">
+            <strong style="overflow: hidden">
+                Hello <br /> <%- user.name %>,
+            </strong><br />
+            <small>Choose your preferred template and start editing</small>
+        </div>
+     </section>
+        <div class="receipt-templates">
+          <a href="/receipt-red">
+              <div class="red">
+                  
+              </div>
+          </a> 
+          <a href="/receipt-red"><button href="/receipt-red" id="red">Edit</button></a>
+
+          <a href="/receipt-blue">
+              <div class="blue">
+          
+              </div>
+          </a>
+          <a href="/receipt-blue"><button href="/receipt-blue" id="blue">Edit</button></a>
+
+          <a href="/receipt-black">
+              <div class="black">
+          
+              </div>
+          </a>
+          <a href="/receipt-black"><button href="/receipt-black" id="black">Edit</button></a>
+
+        </div>
+    </div>
+    
+  </body>
+</html>
+

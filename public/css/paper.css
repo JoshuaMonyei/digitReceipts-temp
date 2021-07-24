@@ -1,0 +1,138 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  max-width: 1440px;
+  width: 100%;
+}
+
+.row > * {
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+}
+
+.my-6 {
+  margin: 10em auto !important;
+}
+
+.mt-6 {
+  margin-top: 12em !important;
+}
+
+.top-right {
+  background-color: transparent !important;
+}
+
+.mt-7 {
+  margin-top: 16em !important;
+}
+
+.top-right {
+  max-height: 100vh;
+  background-color: #f4f4f4;
+  background-size: cover;
+}
+
+.larger {
+  width: 25px !important;
+  height: 25px !important;
+}
+
+.bottom-container {
+  min-height: 60px;
+  background-color: #383e67;
+  margin-top: 12em;
+}
+
+.btn-done {
+  background-color: #383e67 !important;
+  color: #ffffff !important;
+}
+
+.bg-hash {
+  background-color: #cfd1db !important;
+}
+
+.text-red {
+  color: #ff0909 !important;
+}
+
+.text-dred {
+  color: #ad3546 !important;
+}
+
+.search-input {
+  background-color: transparent !important;
+  outline: 0 !important;
+  border: 0 !important;
+}
+
+.search {
+  border: 1px solid #afb2c2 !important;
+  padding: 0 10px !important;
+  border-radius: 5px;
+  background-color: transparent !important;
+}
+
+.settings {
+  background-color: #606586 !important;
+}
+
+.dashboard {
+  display: flex !important;
+  place-items: center !important;
+  align-items: center;
+  align-content: center;
+}
+
+.left-hand {
+  position: relative;
+}
+
+.arrow {
+  position: absolute;
+  background-color: #fff;
+  box-shadow: 1px 0.1px 1px 1px rgba(0, 0, 0, 0.4);
+  top: 11%;
+  right: -10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 13px;
+  border-radius: 5px;
+}
+
+@media screen and (max-width: 768px) {
+  .arrow {
+    display: none;
+  }
+
+  .dashboard {
+    margin: 5px auto !important;
+  }
+  .top {
+    flex-direction: column-reverse;
+    background-color: transparent !important;
+  }
+
+  .top-right {
+    background-color: transparent !important;
+  }
+  .warning {
+    display: flex;
+    align-items: center;
+    padding: 10px auto !important;
+    flex-direction: column;
+    background-color: transparent !important;
+    text-align: center;
+    width: 100%;
+  }
+  .buton {
+    width: 100% !important;
+    margin-top: 20px;
+  }
+}
