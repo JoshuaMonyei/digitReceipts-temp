@@ -1,5 +1,5 @@
 # Flash Receipts
-![Application logo](https://github.com/zuri-training/digitalreceipt-be-pjt-52/blob/ab304546514281c6d45f4dbaa013d3c325581270/logo.png)
+![Application logo](https://github.com/JoshuaMonyei/flashReceipts/blob/c641f1a7225a5b5724afb9dded6bd5c2ee5d0613/logo.png)
 
 Flash receipts is a receipts generation appilication fashioned for small and medium enterprises for easy cataloguing and dispersing of receipts to customers and business partners. 
 The appilication offers alot of advantages to businesses especially those involved in e-commerce by reducing work loads and repetitive tasks through our offered services.
